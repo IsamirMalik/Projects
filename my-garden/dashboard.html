@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Planner - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>Garden Planner</h2>
+            </div>
+            <div class="nav-items">
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="my-garden.html" class="nav-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>My Garden</span>
+                </a>
+                <a href="tasks.html" class="nav-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="tips-resources.html" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>Tips & Resources</span>
+                </a>
+                <a href="community.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Community</span>
+                </a>
+                <!-- <a href="calendar.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendar</span>
+                </a> -->
+                <!-- <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a> -->
+            </div>
+            <button id="logoutBtn" class="btn">Logout</button>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <div class="user-info">
+                    <h3 id="userName">Welcome!</h3>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>My Garden</h3>
+                    <p>Track your plants and their growth</p>
+                    <button class="btn"><a href="my-garden.html">My Garden</a></button>
+                </div>
+
+                <div class="card">
+                    <h3>Upcoming Tasks</h3>
+                    <p>Manage your gardening tasks</p>
+                    <button class="btn"><a href="tasks.html">View Tasks</a></button>
+                </div>
+
+                <div class="card">
+                    <h3>Weather</h3>
+                    <p>Check local weather for your garden</p>
+                    <button class="btn">View Weather</button>
+                </div>
+
+                <div class="card">
+                    <h3>Plant Library</h3>
+                    <p>Browse plant database</p>
+                    <button class="btn"><a href="my-garden.html#plant-list">View Library</a></button>
+                </div>
+            </div>
+
+            <!-- Weather Section -->
+            <section class="weather-section">
+                <h2>Weather Forecast</h2>
+                <div class="weather-container">
+                    <div class="current-weather">
+                        <div class="weather-main">
+                            <i class="fas fa-sun weather-icon"></i>
+                            <div class="weather-info">
+                                <h3>Loading...</h3>
+                                <p class="temperature">--°C</p>
+                                <p class="location">Detecting location...</p>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="detail">
+                                <i class="fas fa-wind"></i>
+                                <span>Wind: -- km/h</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Humidity: --%</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-cloud-rain"></i>
+                                <span>Rain: --%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast-grid">
+                        <!-- Forecast days will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gardening Tips and Resources Section -->
+            <section class="tips-section">
+                <h2>Gardening Tips and Resources</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Seasonal Planting Guide</h4>
+                        <p>Learn what to plant in each season for optimal growth</p>
+                        <a href="https://www.urbanplant.in/a/blog/post/vegetable-growing-season-chart-india?srsltid=AfmBOorkphN4X6IRgQP5lb4ldoEH8meiGDlSurzkiYqgaSXIsYmyuPY5" target="_blank" class="tip-link">Read More</a>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Soil Preparation</h4>
+                        <p>Essential tips for preparing your garden soil</p>
+                        <a href="https://www.ugaoo.com/blogs/gardening-basics/ways-to-prepare-healthy-garden-soil" target="_blank" class="tip-link">Read More</a>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Watering Techniques</h4>
+                        <p>Best practices for watering your plants</p>
+                        <a href="https://www.thegrowingplace.com/watering-instructions/" target="_blank" class="tip-link">Read More</a>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Pest Control</h4>
+                        <p>Natural ways to protect your garden from pests</p>
+                        <a href="https://mankindag.com/safeguard-your-crops-a-guide-to-pest-control-methods/" target="_blank" class="tip-link">Read More</a>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Composting Guide</h4>
+                        <p>Create nutrient-rich compost for your garden</p>
+                        <a href="https://www.artinthepark128.org/post/composting-101-in-harlem-nyc?gad_source=1&gad_campaignid=20217030178&gbraid=0AAAAApJc_4yzq0szD22cmypp56L-gHOQR&gclid=Cj0KCQjwu7TCBhCYARIsAM_S3Nimzc-s-qOPBJBZFjCExWq0BjChmfpEviV7yIzxiYGoKOBHhLXPn5EaAqVOEALw_wcB" target="_blank" class="tip-link">Read More</a>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Plant Care Basics</h4>
+                        <p>Essential care tips for healthy plants</p>
+                        <a href="https://www.patchplants.com/pages/plant-care/" target="_blank" class="tip-link">Read More</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="dashboard.js"></script>
+    <script type="module" src="weather.js"></script>
+</body>
+</html> 
