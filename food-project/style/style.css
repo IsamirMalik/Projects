@@ -44,12 +44,14 @@ html {
     font-size: 35rem;
     color: #a79a2d; 
     position: absolute; 
-    transform: tranlate(-50% , -50%) scale(0) ;
+    transform: translate(-50% , -50%) scale(0) ;
     text-shadow: .3rem .3rem .3rem #000;
+    transition: .3s;
 }
 
 .section-1-icons i.change{
     transform: translate(-50% ,-50%) scale(1);
+    transition: .3s .3s;
 }
 
 /* End of Section -1 */
