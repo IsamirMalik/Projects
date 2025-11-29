@@ -3,6 +3,7 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -12,6 +13,7 @@ export default defineConfig([
       js.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
+      simpleImportSort.configs.default,
     ],
     languageOptions: {
       ecmaVersion: 2020,
@@ -21,8 +23,10 @@ export default defineConfig([
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
       },
+      plugins: ['simple-import-sort'],
     },
     rules: {
+      'simple-import-sort/imports': 'error',
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
