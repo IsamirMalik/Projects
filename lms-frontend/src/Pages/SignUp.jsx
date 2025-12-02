@@ -5,6 +5,7 @@ import HomeLayout from "../Components/HomeLayout";
 import { BsPersonCircle } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
+import { createAccount } from "../Redux/Slices/AuthSlice";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -93,6 +94,8 @@ function SignUp() {
     if (response?.payload?.success) {
       navigate("/");
     }
+    localStorage.setItem('email', JSON.stringify(signUpData.email));
+    localStorage.setItem('password', JSON.stringify(signUpData.password));
 
     setSignUpData({
       full_name: "",
