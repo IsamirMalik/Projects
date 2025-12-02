@@ -14,15 +14,19 @@
   <body>
     <div class="container">
       <h1 class="title">Registration Form</h1>
-      <form class="form-container">
-
+      <form class="form-container" id="form" novalidate>
         <!-- Name -->
         <div class="field">
           <label for="name">Full Name</label>
-          <input type="text" name="name" id="name" placeholder="Full Name"
-          required 
-          minlength="5"
-          maxlength="50"
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Full Name"
+            required
+            minlength="5"
+            maxlength="50"
+            class="input"
           />
         </div>
 
@@ -30,6 +34,7 @@
         <div class="field">
           <label for="phone">Phone</label>
           <input
+            class="input"
             type="tel"
             name="phone"
             id="phone"
@@ -43,6 +48,7 @@
         <div class="field">
           <label for="email">Email</label>
           <input
+            class="input"
             type="email"
             name="email"
             id="email"
@@ -55,6 +61,7 @@
         <div class="field">
           <label for="website">Website</label>
           <input
+            class="input"
             type="url"
             name="website"
             id="website"
@@ -64,30 +71,32 @@
         </div>
 
         <!-- Password -->
-         <!-- for regex refer to www.regexr.com -->
+        <!-- for regex refer to www.regexr.com -->
         <div class="field">
           <label for="password">Password</label>
           <input
+            class="input"
             type="password"
             name="password"
             id="password"
             placeholder="Password"
             required
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
-          title="Must contain at-least 1 number, 1 uppercase letter and must be at least 8 characters"
-            />
-          </div>
-          
-          <!-- Confirm Password -->
-          <div class="field">
+            title="Must contain at-least 1 number, 1 uppercase letter and must be at least 8 characters"
+          />
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="field">
           <label for="confirm-password">Confirm Password</label>
           <input
-          type="password"
-          name="confirm-password"
-          id="confirm-password"
-          placeholder="Confirm Password"
-          required
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+            class="input"
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            placeholder="Confirm Password"
+            required
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
           />
         </div>
 
@@ -98,6 +107,6 @@
         <h3 class="message">Do not Hesitate !</h3>
       </div>
     </div>
-    <link href="script.js" />
+    <script src="./script.js"></script>
   </body>
 </html>
