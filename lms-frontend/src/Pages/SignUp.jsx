@@ -48,7 +48,7 @@ function SignUp() {
     };
   }
 
-  function createNewAccount(event) {
+  async function createNewAccount(event) {
     event.preventDefault();
 
     if (!signUpData.full_name || !signUpData.email || !signUpData.password) {
@@ -88,8 +88,11 @@ function SignUp() {
     formData.append("avatar", signUpData.avatar);
 
     // dispatch create account action
-
-    navigate("/");
+    const response = await dispatch(createAccount(formData));
+    console.log(response)
+    if (response?.payload?.success) {
+      navigate("/");
+    }
 
     setSignUpData({
       full_name: "",
