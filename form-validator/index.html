@@ -13,13 +13,17 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="title">Registration form</h1>
+      <h1 class="title">Registration Form</h1>
       <form class="form-container">
 
         <!-- Name -->
         <div class="field">
           <label for="name">Full Name</label>
-          <input type="text" name="name" id="name" placeholder="Full Name" />
+          <input type="text" name="name" id="name" placeholder="Full Name"
+          required 
+          minlength="5"
+          maxlength="50"
+          />
         </div>
 
         <!-- Phone -->
@@ -30,6 +34,8 @@
             name="phone"
             id="phone"
             placeholder="999-999-9999"
+            required
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           />
         </div>
 
@@ -41,6 +47,7 @@
             name="email"
             id="email"
             placeholder="mail@address.com"
+            required
           />
         </div>
 
@@ -51,11 +58,13 @@
             type="url"
             name="website"
             id="website"
-            placeholder="www.example.com"
+            placeholder="http://www.example.com"
+            required
           />
         </div>
 
         <!-- Password -->
+         <!-- for regex refer to www.regexr.com -->
         <div class="field">
           <label for="password">Password</label>
           <input
@@ -63,25 +72,30 @@
             name="password"
             id="password"
             placeholder="Password"
-          />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="field">
+            required
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+          title="Must contain at-least 1 number, 1 uppercase letter and must be at least 8 characters"
+            />
+          </div>
+          
+          <!-- Confirm Password -->
+          <div class="field">
           <label for="confirm-password">Confirm Password</label>
           <input
-            type="password"
-            name="confirm-password"
-            id="confirm-password"
-            placeholder="Confirm Password"
+          type="password"
+          name="confirm-password"
+          id="confirm-password"
+          placeholder="Confirm Password"
+          required
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
           />
         </div>
 
         <button class="btn" type="submit">Register</button>
       </form>
 
-      <div class="message">
-        <h3>Do not Hesitate !</h3>
+      <div class="message-container">
+        <h3 class="message">Do not Hesitate !</h3>
       </div>
     </div>
     <link href="script.js" />
