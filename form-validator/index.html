@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.google.com/s2/favicons?domain=css-tricks.com"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Registration form</h1>
+      <form class="form-container">
+
+        <!-- Name -->
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" placeholder="Full Name" />
+        </div>
+
+        <!-- Phone -->
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="999-999-9999"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="mail@address.com"
+          />
+        </div>
+
+        <!-- Website URL -->
+        <div class="field">
+          <label for="website">Website</label>
+          <input
+            type="url"
+            name="website"
+            id="website"
+            placeholder="www.example.com"
+          />
+        </div>
+
+        <!-- Password -->
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="field">
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            placeholder="Confirm Password"
+          />
+        </div>
+
+        <button class="btn" type="submit">Register</button>
+      </form>
+
+      <div class="message">
+        <h3>Do not Hesitate !</h3>
+      </div>
+    </div>
+    <link href="script.js" />
+  </body>
+</html>
