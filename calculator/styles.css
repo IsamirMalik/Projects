@@ -10,8 +10,24 @@ body {
   /* gap: 1.5rem; */
   /* justify-content: spa; */
   align-items: center;
-  background: #757f9a;
+  background: #cad8fe;
+  background-image: url('./Maths.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body::before{
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* background-color: #8e8e8e; */
   background: linear-gradient(to right, #d7dde8, #757f9a);
+  opacity: 95%;
+  z-index: -1;
 }
 
 .title{
