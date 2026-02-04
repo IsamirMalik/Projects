@@ -29,6 +29,9 @@ module.exports = ProductModel;
   "storage_capacity": "128GB",
   "release_date": "2023-01-01",
   "price": 20599,
+  ratings: 4.3,
+  reviews: 8600,
+  returns: 3%,
   "metadata":{
     "ram":"6GB",
     "storage":"128GB" ,
