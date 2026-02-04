@@ -10,10 +10,9 @@ const productSchema = new Schema({
   Price: { type: Number, required: true },
   ratings: { type: Number, default: 0 },
   reviews: { type: Number, default: 0 },
-  returns: { type: Number, default: 0 },
   metadata: {
-    ram: { type: String, required: true, enums: ["4GB", "8GB", "14GB"] },
-    storage: { type: String, required: true, enums: ["32GB", "64GB", "128GB", "256GB"] },
+    ram: { type: String, required: true, enums: ["4GB", "8GB", "12GB"] },
+    storage: { type: String, required: true, enums: ["32GB", "64GB", "128GB", "256GB","512GB"] },
     screensize: { type: String, required: true },
     brightness: { type: String, required: true },
   }

@@ -7,15 +7,15 @@ const addProduct = async (req, res) => {
 
   try {
     const productDetails = req.body;
-    const product = new ProductModel(productDetails);
-    await product.save();
+    const product = await ProductModel.create(productDetails);
+    // await product.save();
     res
       .status(201)
       .json({ message: "Product added successfully", product });
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Something went wrong , try again ." });
+      .json({ message: "Something went wrong , try again .", error });
   }
 };
 

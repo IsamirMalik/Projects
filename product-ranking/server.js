@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 
 connectToDB();
+
 app.use('/test', (req, res) => {
 
   try {
