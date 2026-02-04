@@ -1,4 +1,4 @@
-const { default: axios } = require("axios");
+
 const { get } = require("http");
 const ProductModel = require("../models/product.model");
 
