@@ -1,123 +1,105 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import HomeLayout from "../Components/HomeLayout";
+import toast from "react-hot-toast";
 import { BsPersonCircle } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { toast } from "react-hot-toast";
-import { createAccount } from "../Redux/Slices/AuthSlice";
+import { Link, useNavigate } from "react-router-dom";
 
-function SignUp() {
-  const dispatch = useDispatch();
+import { isEmail, isValidPassword } from "../helpers/regexMatcher";
+import HomeLayout from "../layouts/HomeLayout.jsx";
+import { createAccount } from "../redux/slices/authSlice.js";
+
+function Signup() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [previewImage, setPreviewImage] = useState("");
-
-  const [signUpData, setSignUpData] = useState({
-    full_name: "",
+  const [signupDetails, setSignupDetails] = useState({
     email: "",
+    fullName: "",
     password: "",
     avatar: "",
   });
 
-  function handelUserInput(e) {
-    const { name, value } = e.target;
-    console.log(name, value);
+  const [previewImage, setPreviewImage] = useState("");
 
-    setSignUpData({
-      ...signUpData,
+  function handleUserInput(e) {
+    const { name, value } = e.target;
+    setSignupDetails({
+      ...signupDetails,
       [name]: value,
     });
   }
 
-  function handelUserImage(e) {
+  function handleImage(e) {
     e.preventDefault();
-    const image = e.target.files[0];
-
-    if (image) {
-      setSignUpData({
-        ...signUpData,
-        avatar: image,
-      });
-    }
-
+    const uploadedImage = e.target.files[0];
+    if (!uploadedImage) return;
+    setSignupDetails({
+      ...signupDetails,
+      avatar: uploadedImage,
+    });
     const fileReader = new FileReader();
-    fileReader.readAsDataURL(image);
-    fileReader.onload = () => {
-      console.log(fileReader.result);
-      setPreviewImage(fileReader.result);
-    };
+    fileReader.readAsDataURL(uploadedImage);
+    fileReader.addEventListener("load", function () {
+      setPreviewImage(this.result);
+    });
   }
 
-  async function createNewAccount(event) {
-    event.preventDefault();
-
-    if (!signUpData.full_name || !signUpData.email || !signUpData.password) {
-      toast.error("All fields are required");
-      return;
-    }
-
-    if (signUpData.full_name.length < 5) {
-      toast.error("full_name must be at least 5 characters");
-      return;
-    }
-
+  async function onFormSubmit(e) {
+    e.preventDefault();
+    console.log(signupDetails);
     if (
-      !signUpData.email.match(
-        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-      )
+      !signupDetails.email ||
+      !signupDetails.password ||
+      !signupDetails.fullName
     ) {
-      toast.error("Invalid email format");
+      toast.error("Please fill all the details");
       return;
     }
-
-    if (
-      !signUpData.password.match(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,15}$/
-      )
-    ) {
+    if (signupDetails.fullName.length < 5) {
+      toast.error("Name should be atleast of 5 characters");
+      return;
+    }
+    if (!isEmail(signupDetails.email)) {
+      toast.error("Invalid email provided");
+      return;
+    }
+    if (!isValidPassword(signupDetails.password)) {
       toast.error(
-        "Invalid password format , password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+        "Invalid password provided, password should 6-16 character long with atleast a number and a special character",
       );
       return;
     }
 
     const formData = new FormData();
-    formData.append("full_name", signUpData.full_name);
-    formData.append("email", signUpData.email);
-    formData.append("password", signUpData.password);
-    formData.append("avatar", signUpData.avatar);
+    formData.append("fullName", signupDetails.fullName);
+    formData.append("email", signupDetails.email);
+    formData.append("password", signupDetails.password);
+    formData.append("avatar", signupDetails.avatar);
 
-    // dispatch create account action
     const response = await dispatch(createAccount(formData));
-    console.log(response)
+    console.log(response);
     if (response?.payload?.success) {
       navigate("/");
     }
-    localStorage.setItem('email', JSON.stringify(signUpData.email));
-    localStorage.setItem('password', JSON.stringify(signUpData.password));
-
-    setSignUpData({
-      full_name: "",
+    setSignupDetails({
       email: "",
+      fullName: "",
       password: "",
       avatar: "",
     });
-
     setPreviewImage("");
-
-    toast.success("Account created successfully");
   }
 
   return (
     <HomeLayout>
-      <div className="flex items-center justify-center h-[90vh]">
+      <div className="flex overflow-x-auto items-center justify-center h-[100vh]">
         <form
-          onSubmit={createNewAccount}
+          onSubmit={onFormSubmit}
           noValidate
           className="flex flex-col justify-center gap-3 rounded-lg p-4 text-white w-96 shadow-[0_0_10px_black]"
         >
-          <h1 className="text-center text-2xl font-bold">Registration Page</h1>
+          <h1 className="text-2xl text-center font-bold">Registration Page</h1>
           <label htmlFor="image_uploads" className="cursor-pointer">
             {previewImage ? (
               <img
@@ -125,30 +107,30 @@ function SignUp() {
                 src={previewImage}
               />
             ) : (
-              <BsPersonCircle className="w-24 h-24 m-auto rounded-full" />
+              <BsPersonCircle className="w-24 h-24 rounded-full m-auto" />
             )}
           </label>
           <input
-            id="image_uploads"
-            name="image_uploads"
-            className="hidden"
+            onChange={handleImage}
             type="file"
-            accept=".jpg , .jpeg , .png , .svg"
-            onChange={handelUserImage}
+            className="hidden"
+            name="image_uploads"
+            id="image_uploads"
+            accept=".jpg, .jpeg, .png, .svg"
           />
           <div className="flex flex-col gap-1">
-            <label htmlFor="full_name" className="font-semibold">
-              Full Name
+            <label htmlFor="fullName" className="font-semibold">
+              Name
             </label>
             <input
-              type="text"
+              onChange={handleUserInput}
+              value={signupDetails.fullName}
               required
-              id="full_name"
-              name="full_name"
-              placeholder="Enter your full name here"
+              type="text"
+              name="fullName"
               className="bg-transparent px-2 py-1 border rounded-sm"
-              onChange={handelUserInput}
-              value={signUpData.full_name}
+              placeholder="enter your username..."
+              id="fullName"
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -156,14 +138,14 @@ function SignUp() {
               Email
             </label>
             <input
-              type="email"
+              onChange={handleUserInput}
+              value={signupDetails.email}
               required
-              id="email"
+              type="text"
               name="email"
-              placeholder="Enter your email here"
               className="bg-transparent px-2 py-1 border rounded-sm"
-              onChange={handelUserInput}
-              value={signUpData.email}
+              placeholder="enter your Email..."
+              id="email"
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -171,25 +153,22 @@ function SignUp() {
               Password
             </label>
             <input
-              type="password"
               required
-              id="password"
+              onChange={handleUserInput}
+              value={signupDetails.password}
+              type="password"
               name="password"
-              placeholder="Enter your password here"
               className="bg-transparent px-2 py-1 border rounded-sm"
-              onChange={handelUserInput}
-              value={signUpData.password}
+              placeholder="enter your Password..."
+              id="password"
             />
           </div>
-          <button
-            className=" font-semibold bg-yellow-700 hover:bg-yellow-500 transition-all ease-in-out duration-300 py-1 text-black text-lg rounded-sm cursor-pointer"
-            type="submit"
-          >
-            Create Account
+          <button className="mt-2 bg-yellow-800 hover:bg-yellow-500 transition-all ease-in-out duration-300 cursor-pointer py-2 font-semibold text-lg rounded-sm">
+            Create account
           </button>
           <p className="text-center">
             Already have an account ?{" "}
-            <Link to="/login" className="text-yellow-600 cursor-pointer">
+            <Link to="/login" className="cusror-pointer text-accent">
               Login
             </Link>
           </p>
@@ -199,4 +178,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Signup;
