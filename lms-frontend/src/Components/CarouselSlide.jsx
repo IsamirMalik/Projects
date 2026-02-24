@@ -1,4 +1,4 @@
-import React from "react";
+
 
 function CarouselSlide({title , description , slideNumber , totalSlides}) {
   return (

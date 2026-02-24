@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import CourseCard from "../../components/CourseCard.jsx";
-import { getAllCourses } from "../../redux/slices/courseSlice.js";
+import CourseCard from "../../Components/CourseCard.jsx";
+import { getAllCourses } from "../../Redux/slices/courseSlice.js";
 import HomeLayout from "../../Layouts/HomeLayout.jsx";
 
 function CourseList() {

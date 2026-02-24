@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { AiFillCloseCircle } from "react-icons/ai";
-import Footer from "../Components/Footer";
+import Footer from "../Components/Footer.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/slices/authSlice.js";
 

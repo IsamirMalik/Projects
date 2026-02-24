@@ -1,5 +1,4 @@
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
-import React from "react";
 
 function Footer() {
   const currentDate = new Date();

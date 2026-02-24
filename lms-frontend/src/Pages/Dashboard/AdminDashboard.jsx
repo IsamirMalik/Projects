@@ -17,10 +17,10 @@ import { GiMoneyStack } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import HomeLayout from "../../Layouts/HomeLayout";
+import HomeLayout from "../../Layouts/HomeLayout.jsx";
 import { deleteCourse, getAllCourses } from "../../Redux/slices/CourseSlice.js";
-import { getPaymentRecord } from "../../Redux/Slices/RazorpaySlice";
-import { getStatsData } from "../../Redux/Slices/StatSlice";
+import { getPaymentRecord } from "../../Redux/slices/RazorpaySlice.js";
+import { getStatsData } from "../../Redux/slices/StatSlice.js";
 ChartJS.register(
   ArcElement,
   BarElement,

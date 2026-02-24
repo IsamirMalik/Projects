@@ -5,8 +5,8 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import HomeLayout from "../../layouts/HomeLayout";
-import { createNewCourse } from "../../redux/slices/courseSlice";
+import HomeLayout from "../../Layouts/HomeLayout.jsx";
+import { createNewCourse } from "../../Redux/slices/courseSlice.js";
 
 function CreateCourse() {
 

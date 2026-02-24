@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import HomeLayout from "../../layouts/HomeLayout";
+import HomeLayout from "../../Layouts/HomeLayout.jsx";
 import { getUserData } from "../../Redux/slices/authSlice.js";
 import { cancelCourseBundle } from "../../Redux/slices/razorPaySlice.js";
 
