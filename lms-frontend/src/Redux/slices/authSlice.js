@@ -56,7 +56,7 @@ export const getUserData = createAsyncThunk("/auth/getData", async () => {
 
 export const login = createAsyncThunk("/auth/signin", async (data) => {
   try {
-    const response = axiosInstance.post("user/login", data);
+    const response = axiosInstance.post("user/login", data,{withCredentials: true});
     toast.promise(response, {
       loading: 'Wait! authenticating your account',
       success: (data) => {
