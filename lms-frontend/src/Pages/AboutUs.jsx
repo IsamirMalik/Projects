@@ -1,5 +1,5 @@
 import CarouselSlide from "../Components/CarouselSlide";
-import HomeLayout from "../Components/HomeLayout";
+import HomeLayout from "../Layouts/HomeLayout.jsx";
 import aboutMainImage from "../assets/images/aboutMainImage.png";
 import content  from "../Constants/CarouselContent";
 import React from "react";
