@@ -8,7 +8,8 @@ import sendEmail from '../utils/sendEmail.js';
 const cookieOptions = {
   maxAge: 24 * 60 * 60 * 1000, // 7 days
   httpOnly: true,
-  secure: true
+  secure: true,
+  sameSite: "none"
 };
 
 const register = async (req, res, next) => {
@@ -106,7 +107,7 @@ const login = async (req, res, next) => {
 
 
     res.cookie("token", token, cookieOptions);
-    console.log(res);
+    console.log(res.cookie);
     res.status(200).json({
       success: true,
       message: "User logged in successfully",
