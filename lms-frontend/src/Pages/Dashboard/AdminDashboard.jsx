@@ -18,8 +18,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import HomeLayout from "../../Layouts/HomeLayout.jsx";
-import { deleteCourse, getAllCourses } from "../../Redux/slices/CourseSlice.js";
-import { getPaymentRecord } from "../../Redux/slices/RazorpaySlice.js";
+import { deleteCourse, getAllCourses } from "../../Redux/slices/courseSlice.js";
+import { getPaymentRecord } from "../../Redux/slices/razorpaySlice.js";
 import { getStatsData } from "../../Redux/slices/StatSlice.js";
 ChartJS.register(
   ArcElement,
