@@ -13,7 +13,7 @@ const store = configureStore({
     course: courseReducer,
     razorpay: razorpayReducer,
     lecture: lectureReducer,
-    stat : statSliceReducer
+    stat: statSliceReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
   devTools: true

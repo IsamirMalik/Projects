@@ -4,7 +4,7 @@ import { FiMenu } from "react-icons/fi";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Footer from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/slices/authSlice";
+import { logout } from "../Redux/slices/authSlice.js";
 
 function HomeLayout({ children }) {
   const dispatch = useDispatch();

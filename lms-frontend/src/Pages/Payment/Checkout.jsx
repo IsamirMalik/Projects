@@ -9,7 +9,7 @@ import {
   getRazorPayId,
   purchaseCourseBundle,
   verifyUserPayment,
-} from "../../redux/slices/razorPaySlice";
+} from "../../Redux/slices/razorPaySlice.js";
 
 function Checkout() {
   const dispatch = useDispatch();
