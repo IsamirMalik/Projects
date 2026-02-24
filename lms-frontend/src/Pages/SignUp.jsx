@@ -5,9 +5,9 @@ import { BsPersonCircle } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import { isEmail, isValidPassword } from "../helpers/regexMatcher";
-import HomeLayout from "../layouts/HomeLayout.jsx";
-import { createAccount } from "../redux/slices/authSlice.js";
+import { isEmail, isValidPassword } from "../Helpers/regexMatcher.jsx";
+import HomeLayout from "../Layouts/HomeLayout.jsx";
+import { createAccount } from "../Redux/slices/authSlice.js";
 
 function Signup() {
   const navigate = useNavigate();

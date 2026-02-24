@@ -3,9 +3,9 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import { isEmail } from "../helpers/regexMatcher";
-import HomeLayout from "../layouts/HomeLayout";
-import { login } from "../redux/slices/authSlice";
+import { isEmail } from "../Helpers/regexMatcher.jsx";
+import HomeLayout from "../Layouts/HomeLayout.jsx";
+import { login } from "../Redux/slices/authSlice.js";
 
 function Login() {
   const navigate = useNavigate();

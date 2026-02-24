@@ -3,7 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 import axiosInstance from "../Helpers/axiosInstance.js";
-import { isEmail } from "../helpers/regexMatcher";
+import { isEmail } from "../Helpers/regexMatcher.jsx";
 import HomeLayout from "../Layouts/HomeLayout.jsx";
 
 function Contact() {
