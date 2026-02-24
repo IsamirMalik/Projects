@@ -13,7 +13,7 @@ import Home from "./Pages/HomePage.jsx";
 import Checkout from "./Pages/Payment/Checkout.jsx";
 import CheckoutFailure from "./Pages/Payment/CheckoutFailure.jsx";
 import CheckoutSuccess from "./Pages/Payment/CheckoutSuccess.jsx";
-import NotFound from "./Pages/Notfound.jsx";
+import NotFound from "./Pages/NotFound.jsx";
 import Login from "./Pages/Login.jsx";
 import SignUp from "./Pages/SignUp.jsx";
 import EditProfile from "./Pages/User/EditProfile.jsx";
