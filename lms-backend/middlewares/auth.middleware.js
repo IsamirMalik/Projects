@@ -5,15 +5,15 @@ const isLoggedIn = async (req, res, next) => {
 
   const { token } = req.cookies;
 
-  const decoded = jwt.decode(token);
+  // const decoded = jwt.decode(token);
 
   // decoded.expiry = process.env.JWT_EXPIRY;
   // console.log("decoded Token", decoded);
 
-  const expDate = new Date(decoded.exp * 1000);
+  // const expDate = new Date(decoded.exp * 1000);
   // console.log("Token expires at (Local):", expDate.toString());
 
-  const now = Math.floor(Date.now() / 1000);
+  // const now = Math.floor(Date.now() / 1000);
 
   // if (decoded.exp < now) {
   //   console.log("Token is expired!");
