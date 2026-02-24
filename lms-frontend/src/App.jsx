@@ -1,36 +1,35 @@
-import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
 
-import RequireAuth from './Components/Auth/RequireAuth';
-import Contact from './Pages/Contact'
-import CourseDescription from './Pages/Course/CourseDescription'
-import CourseList from './Pages/Course/CourseList'
-import CreateCourse from './Pages/Course/CreateCourse'
-import AddLecture from './Pages/Dashboard/AddLecture'
-import DisplayLectures from './Pages/Dashboard/DisplayLectures'
-import Denied from './Pages/Denied'
-import Home from './Pages/HomePage.jsx'
-import Notfound from './Pages/Notfound'
-import Checkout from './Pages/Payment/Checkout'
-import CheckoutFailure from './Pages/Payment/CheckoutFailure'
-import CheckoutSuccess from './Pages/Payment/CheckoutSuccess'
-import Login from './Pages/Login.jsx'
-import SignUp from './Pages/SignUp'
-import EditProfile from './Pages/User/EditProfile'
-import Profile from './Pages/User/Profile'
-import AboutUs from './Pages/AboutUs';
-import AdminDashboard from './Pages/Dashboard/AdminDashboard.jsx';
+import RequireAuth from "./Components/Auth/RequireAuth.jsx";
+import Contact from "./Pages/Contact.jsx";
+import CourseDescription from "./Pages/Course/CourseDescription.jsx";
+import CourseList from "./Pages/Course/CourseList.jsx";
+import CreateCourse from "./Pages/Course/CreateCourse.jsx";
+import AddLecture from "./Pages/Dashboard/AddLecture.jsx";
+import DisplayLectures from "./Pages/Dashboard/DisplayLectures.jsx";
+import Denied from "./Pages/Denied.jsx";
+import Home from "./Pages/HomePage.jsx";
+import Checkout from "./Pages/Payment/Checkout.jsx";
+import CheckoutFailure from "./Pages/Payment/CheckoutFailure.jsx";
+import CheckoutSuccess from "./Pages/Payment/CheckoutSuccess.jsx";
+import NotFound from "./Pages/Notfound.jsx";
+import Login from "./Pages/Login.jsx";
+import SignUp from "./Pages/SignUp.jsx";
+import EditProfile from "./Pages/User/EditProfile.jsx";
+import Profile from "./Pages/User/Profile.jsx";
+import AboutUs from "./Pages/AboutUs.jsx";
+import AdminDashboard from "./Pages/Dashboard/AdminDashboard.jsx";
 
 function App() {
-
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/about' element={<AboutUs />} />
-      <Route path='/signup' element={<SignUp />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/course' element={<CourseList />} />
-      <Route path='/course/description' element={<CourseDescription />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/course" element={<CourseList />} />
+      <Route path="/course/description" element={<CourseDescription />} />
 
       <Route element={<RequireAuth allowedRoles={["ADMIN", "USER"]} />}>
         <Route path="/user/profile" element={<Profile />} />
@@ -49,11 +48,11 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Route>
 
-      <Route path='/contact' element={<Contact />} />
-      <Route path='/denied' element={<Denied />} />
-      <Route path='*' element={<Notfound />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/denied" element={<Denied />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;
