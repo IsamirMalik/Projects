@@ -1,4 +1,4 @@
-import HomeLayout from "../Components/HomeLayout";
+import HomeLayout from "../Layouts/HomeLayout.jsx";
 import { Link } from "react-router-dom";
 import homePageMainImage from "../assets/images/homePageMainImage.png";
 import React from "react";
@@ -20,7 +20,7 @@ function HomePage(){
             We have a large library of courses taught by highly skilled and qualified facilities at a very affordable cost
           </p>
           <div className="space-x-6">
-              <Link to="/courses">
+              <Link to="/course">
                 <button className="bg-yellow-500 py-3 px-5 rounded-md font-semibold text-lg coursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300">
                   Explore Courses
                 </button>
