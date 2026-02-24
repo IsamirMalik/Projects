@@ -5,7 +5,7 @@ const isLoggedIn = async (req, res, next) => {
 
   const { token } = req.cookies;
 
-  const decoded = jwt.decode(token);
+  const decoded = await jwt.decode(token);
 
   decoded.expiry = process.env.JWT_EXPIRY;
   console.log("decoded Token", decoded);
