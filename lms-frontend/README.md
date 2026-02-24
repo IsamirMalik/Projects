@@ -266,6 +266,6 @@ A modern, full-featured Learning Management System (LMS) frontend application bu
 - All admin features require ADMIN role
 - Course access requires active subscription
 
-
+## [Live ↗️](https://lms-eight-virid-95.vercel.app/)
 
 
